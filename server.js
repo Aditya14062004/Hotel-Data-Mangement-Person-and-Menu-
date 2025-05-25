@@ -3,9 +3,11 @@
 const express = require('express');
 const app = express();
 const db = require('./db');
+require('dotenv').config(); // With this line get to know that .env file is configured there.
 
 const bodyParser = require('body-parser')
 app.use(bodyParser.json());//req.body
+const PORT = process.env.PORT || 3000; // If the value of port is available in env file than it will use that port value otherwise it will use local port no. 3000
 
 app.get('/first', function(req,res){
     res.send('Hello World');
